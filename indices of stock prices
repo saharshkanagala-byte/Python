@@ -1,0 +1,17 @@
+prices = [498, 536, 520, 512, 543, 555, 560, 551]
+stack = []
+answer = []
+
+for i in prices:
+  while stack and stack[-1] < i:
+    stack.pop
+  
+  if not stack:
+    stack.append(-1)
+  else:
+    stack.append(stack[-1])
+
+  stack.append(i)
+
+print(answer)
+
