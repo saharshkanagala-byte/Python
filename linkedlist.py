@@ -58,8 +58,58 @@ class Linkedlist:
       print(current.data, end = "->")
       current = current.next
     print("None")
-
-
+  def delete_at_begin(self):
+    if self.head is None:
+      print("Linked list is empty")
+      return 
+    self.head = self.head.next
+  def delete_at_end(self):
+    if self.head is None:
+      print("The list is empty")
+      return
+    if self.head.next is None:
+      self.head = None
+    current = self.head
+    while current.next.next:
+      current = current.next
+    current.next = None
+  def delete_by_value(self, value):
+    if self.head is None:
+      print("List is empty")
+      return
+    if self.head.data == value:
+      self.head = self.head.next
+      return
+    previous = None
+    current = self.head
+    while current is not None and current.data != value:
+      previous = current
+      current = current.next
+    if current is None:
+      print("Value not found")
+      return
+    previous.next = current.next
+  def delete_at_position(self, position):
+    if self.head is None:
+      print("List is empty")
+      return
+    if position < 0:
+      print("Invalid position")
+      return
+    if position == 0:
+      self.head = self.head.next
+      return
+    current = self.head
+    previous = None
+    index = 0
+    while current is not None and index < position:
+      previous = current 
+      current = current.next
+      index += 1
+    if current is None:
+      print("Position out of range")
+      return
+    previous.next = current.next
 l = Linkedlist()
 l.insert_at_begin(52)
 l.display()
@@ -69,7 +119,19 @@ l.insert_at_end(71)
 l.display()
 l.insert_at(522,2)
 l.display()
-
+l.insert_at_end(5125)
+l.insert_at_end(6314)
+l.insert_at_end(1231)
+l.insert_at_end(2341)
+l.display()
+l.delete_at_begin()
+l.display()
+l.delete_at_end()
+l.display()
+l.delete_by_value(71)
+l.display()
+l.delete_at_position(3)
+l.display()
 
 
     
