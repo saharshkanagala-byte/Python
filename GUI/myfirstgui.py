@@ -1,0 +1,16 @@
+from tkinter import *
+window = Tk()
+window.config(bg = 'blue')
+window.geometry('300x200')
+l = Label(window, text = 'Enter your name:', bg = 'yellow',fg = 'green', font = ('Arial', 10,'italic'))
+l.pack()
+e = Entry(window)
+e.pack()
+def submit():
+    name = e.get()
+    rl.config(text = f'your name : {name}')
+b = Button(window, text = 'Submit', command = submit)
+b.pack()
+rl = Label(window)
+rl.pack()
+window.mainloop()
