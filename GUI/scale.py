@@ -1,0 +1,15 @@
+from tkinter import * 
+window = Tk()
+window.title('scale example')
+l = Label(window, text='Choose a value')
+l.pack()
+scale = Scale(window, from_=0, to=10, orient='horizontal', resolution=5)
+scale.pack()
+def show():
+  selected = scale.get()
+  l1.config(text=f"You selected {selected}")
+b = Button(window, text='Submit', command=show)
+b.pack()
+l1 = Label(window, text= '')
+l1.pack()
+window.mainloop()

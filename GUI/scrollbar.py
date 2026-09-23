@@ -1,0 +1,15 @@
+from tkinter import *
+window = Tk()
+window.title('Scrollbar example')
+text = Text(window, wrap=NONE)
+xscroll = Scrollbar(window, orient=HORIZONTAL)
+yscroll = Scrollbar(window)
+text.config(yscrollcommand=yscroll.set, xscrollcommand= xscroll.set)
+xscroll.config(command=text.xview)
+yscroll.config(command=text.yview)
+for i in range(101):
+  text.insert(END, f"This is line {i+1}\n")
+text.grid(row=0, column=0)
+xscroll.grid(row=1, column=0, sticky='ew')
+yscroll.grid(row=0, column=1,sticky='ns')
+window.mainloop()

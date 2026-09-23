@@ -1,0 +1,15 @@
+from tkinter import *
+window = Tk()
+window.title('Spinbox example')
+l = Label(window, text='Select a number')
+l.pack()
+spinbox= Spinbox(window, from_=1, to=10)
+spinbox.pack()
+def show():
+  selected = spinbox.get()
+  l1.config(text= f"You selected {selected}")  
+b = Button(window, text='Submit', command=show)
+b.pack()
+l1 = Label(window, text='')
+l1.pack()
+window.mainloop()
